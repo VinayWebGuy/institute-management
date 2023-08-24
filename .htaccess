@@ -1,0 +1,20 @@
+<IfModule mod_rewrite.c>
+# That was ONLY to protect you from 500 errors
+# if your server did not have mod_rewrite enabled
+
+
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^study\.key2success\.info [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://study.key2success.info/$1 [R,L]
+
+RewriteEngine On
+# RewriteBase /
+# NOT needed unless you're using mod_alias to redirect
+
+RewriteCond %{REQUEST_URI} !/public
+RewriteRule ^(.*)$ public/$1 [L]
+# Direct all requests to /public folder
+
+</IfModule>
